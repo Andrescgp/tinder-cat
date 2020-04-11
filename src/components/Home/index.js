@@ -1,12 +1,15 @@
 import React from 'react'
-import { Profile } from './profile'
-import { ViewCats } from './viewcats'
-import { AboutCat } from './aboutcat'
+import { Profile } from './Profile'
+import { ViewCats } from './ViewCats'
+import { AboutCat } from './AboutCat'
+import { ProfileContextStore } from '../../contexts/ProfileContext'
 
 export const Home = () => (
     <div className="home-page">
-        <Profile />
-        <ViewCats />
-        <AboutCat />
+        <ProfileContextStore>
+            <Profile />
+            <ViewCats />
+            <AboutCat />
+        </ProfileContextStore>
     </div>
 )

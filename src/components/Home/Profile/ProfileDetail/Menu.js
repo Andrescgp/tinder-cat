@@ -23,7 +23,7 @@ export const Menu = () => (
             </a>
             <a href="#">
                 <li>
-                    <ion-icon name="logo-octocat"></ion-icon>
+                    <ion-icon name="log-out"></ion-icon>
                     <p>Close session</p>
                 </li>
             </a>
