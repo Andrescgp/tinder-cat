@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { App } from './App';
 
 ReactDOM.render(<App />, document.getElementById('root'));
@@ -21,3 +22,8 @@ ReactDOM.render(
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
 >>>>>>> Initialize project using Create React App
+=======
+import { App } from './App';
+
+ReactDOM.render(<App />, document.getElementById('root'));
+>>>>>>> Repo actualizado 10 abril

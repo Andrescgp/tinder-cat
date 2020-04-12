@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import React from 'react'
 import { Routers } from './components/Routers'
 import { MsgContext } from './contexts/MsgContext'
@@ -36,3 +37,14 @@ function App() {
 
 export default App;
 >>>>>>> Initialize project using Create React App
+=======
+import React from 'react'
+import { Routers } from './components/Routers'
+import { MsgContext } from './contexts/MsgContext'
+
+export const App = () => (
+    <MsgContext.Provider value={ 'Hola a todos!!' }>
+        <Routers />
+    </MsgContext.Provider>
+)
+>>>>>>> Repo actualizado 10 abril
