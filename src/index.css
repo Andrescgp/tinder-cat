@@ -368,6 +368,17 @@ font-weight: bold;
 margin: 5% auto;
 }
 
+.form-group input{
+  width: 90%;
+  background: #f2f2f2;
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1.1em;
+  font-family: 'Lato';
+  color: #444;
+}
+
 #name{
   margin-left: 15px;
   border-radius: 5px;
@@ -382,10 +393,11 @@ margin: 5% auto;
     color: #fff;
     cursor: pointer;
     font-size: 18px;
-    margin-top: 25%;
-    padding: 20px 100px;
+    margin-top: 5%;
+    padding: 20px 150px;
     transition: all .05s;
     display: flex;
+    align-items: center;
     
   }
   

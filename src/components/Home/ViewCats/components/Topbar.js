@@ -28,7 +28,7 @@ export const Topbar = () => {
                 <img width="200" src={ Logo } />
             </div>
             <TopbarIcon badge="6" name="notifications" />
-            <TopbarIcon onPress={ 'msgPanelHandler' } name="filter-sharp" />
+            
         </div>
     )
 }

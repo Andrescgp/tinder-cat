@@ -26,7 +26,7 @@ export const Signup = () => (
                         <input id="name" type="text" name="apellidos" />
                     </div>
 
-                        <div className="form-group radibuttons">
+                        <div className="form-group-l radibuttons">
                         <input type="radio" name="genero" value="hombre" /> Gato 
                         <input type="radio" name="genero" value="mujer" /> Gata 
                         <input type="radio" name="genero" value="otro" /> Otro
