@@ -1,16 +1,16 @@
 import React, { useContext } from 'react'
 import { Interest } from './components/Interests'
-import { MsgContext } from '../../../contexts/MsgContext'
+import { MsiContext } from '../../../contexts/MsiContext'
 
 export const AboutCat = () => {
 
-    const message = useContext(MsgContext)
+    const mensaje = useContext(MsiContext)
 
     return (
         <div className="about-cat">
             About cat
             <br /><br />
-            { message }
+            { mensaje }
             <Interest />
         </div>
     )

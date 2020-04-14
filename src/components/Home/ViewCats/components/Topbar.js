@@ -4,6 +4,7 @@ import { TopbarIcon } from './Topbar-icon'
 import { ProfileContext } from '../../../../contexts/ProfileContext'
 
 
+
 const logoStyle = {
     flex: 1,
     textAlign: 'center'
@@ -12,7 +13,6 @@ const logoStyle = {
 export const Topbar = () => {
 
     const { profilePanel, setProfilePanel } = useContext(ProfileContext)
-
 
     const profilePanelHandler = () => {
         //console.log('click!')
@@ -28,7 +28,7 @@ export const Topbar = () => {
                 <img width="200" src={ Logo } />
             </div>
             <TopbarIcon badge="6" name="notifications" />
-            
+            <TopbarIcon onPress={ 'msgPanelHandler' } name="filter-sharp" />
         </div>
     )
 }
