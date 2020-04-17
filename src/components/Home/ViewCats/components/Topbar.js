@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import Logo from '../../../../static/logo-color.svg'
 import { TopbarIcon } from './Topbar-icon'
 import { ProfileContext } from '../../../../contexts/ProfileContext'
+import { AboutContext } from '../../../../contexts/AboutContext'
 
 
 
@@ -14,9 +15,16 @@ export const Topbar = () => {
 
     const { profilePanel, setProfilePanel } = useContext(ProfileContext)
 
+    const { aboutPanel, setAboutPanel } = useContext(AboutContext)
+
     const profilePanelHandler = () => {
         //console.log('click!')
         setProfilePanel(!profilePanel)
+    }
+
+    const aboutPanelHandler = () => {
+
+        setAboutPanel(!aboutPanel)
     }
 
     return (
@@ -28,7 +36,7 @@ export const Topbar = () => {
                 <img width="200" src={ Logo } />
             </div>
             <TopbarIcon badge="6" name="notifications" />
-            
+            <TopbarIcon onPress={ aboutPanelHandler } name="filter-sharp" />
         </div>
     )
 }
