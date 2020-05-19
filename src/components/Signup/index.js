@@ -4,14 +4,16 @@ import Logo from '../../static/logo-login.png'
 export const Signup = () => (
 <div className="center">
     <div className="complex">
-            {/* LOGO */}
-            <div id="logo">
+            
+            
+    <section id="content">
+
+        {/* LOGO */}
+        <div id="logos">
             <img src={Logo} className="app-logo" alt="Logotipo" />
             </div>
             
            {/*FORMULARIO*/}
-            
-    <section id="content">
 
                <h1 className="subheader">Registro</h1>
 
@@ -22,15 +24,37 @@ export const Signup = () => (
                     </div>
 
                     <div className="form-group">
-                        <label for="apellidos">Apellidos</label>
+                        <label for="apellidos">Nick</label>
                         <input id="name" type="text" name="apellidos" />
                     </div>
-
-                        <div className="form-group-l radibuttons">
+                    <div className="form-group">
+                        <label for="apellidos">Email</label>
+                        <input id="name" type="text" name="apellidos" />
+                    </div>
+                    <div className="form-group">
+                        <label for="apellidos">Contaseña</label>
+                        <input id="name" type="text" name="apellidos" />
+                    </div>
+                    <div className="form-group-l radibuttons">
+                        <label class="form-group">Género</label>
                         <input type="radio" name="genero" value="hombre" /> Gato 
                         <input type="radio" name="genero" value="mujer" /> Gata 
                         <input type="radio" name="genero" value="otro" /> Otro
                     </div>
+                    <div class="form-group">
+                    <label for="apellidos">Fecha</label>
+                    <input type="date"></input>
+                    </div>
+                    <div class="form-group">
+                            <label for="bio">Biografia</label>
+                            <textarea name="bio"></textarea>
+                     </div>
+                    
+
+                        
+
+                    
+                    
 
                     <input type="submit" value="Enviar" className="btn-success" />
 
@@ -39,3 +63,4 @@ export const Signup = () => (
     </div>  
 </div>
 )
+

@@ -318,12 +318,17 @@ body {
 
 /*FORMULARIO DE REGISTRO*/
 
-#logo img {
+#logos {
   display: flex;
+  justify-content: center;
+  
 }
 
 .content {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
   color: red;
 }
 
@@ -336,10 +341,11 @@ body {
 
 .complex{
 background-color: #fff;
-margin: 10% auto;
+margin: 5% auto;
 padding: 5% 5%;
 border-radius: 10px;
-height: 40% !important;
+height: 65%;
+
 }
 
 .center {
@@ -392,7 +398,7 @@ margin: 5% auto;
     color: #fff;
     cursor: pointer;
     font-size: 18px;
-    margin-top: 5%;
+    margin-top: 10%;
     padding: 20px 150px;
     transition: all .05s;
     display: flex;
