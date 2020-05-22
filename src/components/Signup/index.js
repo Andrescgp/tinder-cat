@@ -25,15 +25,15 @@ export const Signup = () => (
 
                     <div className="form-group">
                         <label for="apellidos">Nick</label>
-                        <input id="name" type="text" name="apellidos" />
+                        <input id="name" type="text" />
                     </div>
                     <div className="form-group">
                         <label for="apellidos">Email</label>
-                        <input id="name" type="text" name="apellidos" />
+                        <input id="name" type="text" />
                     </div>
                     <div className="form-group">
                         <label for="apellidos">Contaseña</label>
-                        <input id="name" type="text" name="apellidos" />
+                        <input type="password" pattern=".{6,}" />
                     </div>
                     <div className="form-group-l radibuttons">
                         <label class="form-group">Género</label>

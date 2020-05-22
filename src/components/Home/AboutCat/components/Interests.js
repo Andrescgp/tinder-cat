@@ -12,6 +12,14 @@ export const Interest = () => {
                 {
                     INTERESTS.map( (item, key) => <InterestOne key={ key } name={ item.name } status={ item.status } /> )
                 }
+                
+                <div className="genero">
+                        <h3 > ¿Qué género buscas? </h3>
+                        <hr />
+                        <input class="esfera" type="radio" name="genero" value="hombre" /> Gato 
+                        <input class="esfera" type="radio" name="genero" value="mujer" /> Gata 
+                        <input class="esfera" type="radio" name="genero" value="otro" /> Otro
+                </div>
             </div>
         </div>
     )
