@@ -1,66 +1,134 @@
-import React from 'react'
-import Logo from '../../static/logo-login.png'
+import React from "react";
+import { useHistory } from 'react-router-dom'
+import Logo from '../../img/Logo_color.svg'
+import { useState } from 'react';
+import swal from 'sweetalert'
+import { requestHttp } from "../../config/http-server";
+import { HTTP_CONSTANTS } from "../../config/http-constants";
 
-export const Signup = () => (
-<div className="center">
-    <div className="complex">
-            
-            
-    <section id="content">
+const logoStyle = {
+    flex: 1,
+    textAlign: 'left'
+}
 
-        {/* LOGO */}
-        <div id="logos">
-            <img src={Logo} className="app-logo" alt="Logotipo" />
+export const Signup = (props) => {
+
+    const [gender, setGender] = useState ('')
+    const [name, setName] = useState ('')
+    const [username, setUsername] = useState ('')
+    const [birthday, setBirthday] = useState ('')
+    const [email, setEmail] = useState ('')
+    const [photo, setPhoto] = useState ('')
+    const [bio, setBio] = useState ('')
+    const [password, setPassword] = useState ('')
+    const history = useHistory()
+    
+    const onSubmitHandler = (e) => {
+        e.preventDefault()
+        const data = signupCatData()
+        signupRequest(data)
+    }
+
+    const signupCatData = () => {
+        const data = {
+            name,
+            bio,
+            email,
+            nick: username,
+            gender,
+            password,
+            birthday,
+            image: photo,
+            preferences: {
+                gender: gender === 'F' ? 'M' : 'F',
+                age_min: 1, 
+                age_max: 10
+            }
+        }
+
+        return data
+    }
+
+    const signupRequest = async (data) => {
+        try {
+            const endpoint = HTTP_CONSTANTS.register
+            const response = await requestHttp('post', endpoint, data)
+            if (response.status === 1) {
+                swal('Great!', 'You are now in Tindercat', 'success')
+                .then(value => {
+                    redirectLogin()
+                })
+            } else {
+                swal('Error', 'Try later please', 'warning')
+            }
+        } catch (err) {
+            swal('Error', 'Try later please', 'warning')
+        }
+    }
+
+    const redirectLogin = () => {
+        history.push('/login')
+    }
+
+    return (
+    <div className="formulario">
+        <form onSubmit={onSubmitHandler}>
+        <div className="logo-register">
+            <div style={logoStyle}>
+                <img width="200" src={Logo} />
+        </div>
+
+        </div>
+        <div className="register">
+            <p>REGISTRO</p>
             </div>
-            
-           {/*FORMULARIO*/}
 
-               <h1 className="subheader">Registro</h1>
+        <input checked={ gender === 'F'} onChange={e => setGender(e.target.value) } type = "radio" name="gender" value="F" />
+        <label>Female</label>
+        <span className="divider"></span>
 
-               <form className="mid-form">
-                    <div className="form-group">
-                        <label for="nombre">Nombre  </label>
-                        <input id="name" type="text" name="nombre" />
-                    </div>
+        <input checked={ gender === 'M'} onChange={e => setGender(e.target.value) } type = "radio" name="gender" value="M" />
+        <label>Male</label>
 
-                    <div className="form-group">
-                        <label for="apellidos">Nick</label>
-                        <input id="name" type="text" />
-                    </div>
-                    <div className="form-group">
-                        <label for="apellidos">Email</label>
-                        <input id="name" type="text" />
-                    </div>
-                    <div className="form-group">
-                        <label for="apellidos">Contaseña</label>
-                        <input type="password" pattern=".{6,}" />
-                    </div>
-                    <div className="form-group-l radibuttons">
-                        <label class="form-group">Género</label>
-                        <input type="radio" name="genero" value="hombre" /> Gato 
-                        <input type="radio" name="genero" value="mujer" /> Gata 
-                        <input type="radio" name="genero" value="otro" /> Otro
-                    </div>
-                    <div class="form-group">
-                    <label for="apellidos">Fecha</label>
-                    <input type="date"></input>
-                    </div>
-                    <div class="form-group">
-                            <label for="bio">Biografia</label>
-                            <textarea name="bio"></textarea>
-                     </div>
-                    
+        <div className="input-custom">
+            <label>Name</label>
+            <input value={ name } onChange={e => setName(e.target.value) } type="text" required={ true } />
+        </div>
 
-                        
+        <div className="input-custom">
+            <label>Username</label>
+            <input value={ username } onChange={e => setUsername(e.target.value) } type="text" required={ true } />
+        </div>
+        
+        <div className="input-custom">
+            <label>Email</label>
+            <input value={ email } onChange={e => setEmail(e.target.value) } type="email" required={ true } />
+        </div>
 
-                    
-                    
+        <div className="input-custom">
+            <label>Birthday</label>
+            <input value={ birthday } onChange={e => setBirthday(e.target.value) } type="date" required={ true } />
+        </div>
 
-                    <input type="submit" value="Enviar" className="btn-success" />
+        <div className="input-custom">
+            <label>Password</label>
+            <input value={ password } onChange={e => setPassword(e.target.value) } type="Password" required={ true } />
+        </div>
 
-               </form>           
-        </section>
-    </div>  
-</div>
-)
+        <div className="input-custom">
+            <label>Photo</label>
+            <input value={ photo } onChange={e => setPhoto(e.target.value) } type="url" required={ true } />
+        </div>
 
+        <div className="input-custom">
+            <label>Bio</label>
+            <textarea value={ bio } onChange={e => setBio(e.target.value) } required={ true } ></textarea>
+        </div>
+
+        <div className="button-primary">
+            <input type="submit" value="Aceptar" />
+        </div>
+        </form>
+    </div>
+    )
+}
